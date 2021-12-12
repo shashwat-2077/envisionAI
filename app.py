@@ -76,9 +76,9 @@ def predict():
         prediction=model.predict([[Area, Bed, Maintenance_staff, Gym, Swimming_Pool, Landscape, School, Parking, Hospital, gas_station, Lift]])
         output=round(prediction[0],2)
         if output<0:
-            return render_template('index.html',prediction_texts="Sorry, You might have entered some wrong values. Please enter the correct details again")
+            return render_template('index.html',Rs="Sorry, You might have entered some wrong values. Please enter the correct details again")
         else:
-            return render_template('index.html',prediction_text="You Can Sell The Real Estate at {}".format(output))
+            return render_template('index.html',Rs="You Can Sell The Real Estate at {}".format(output))
     else:
         return render_template('index.html')
 
