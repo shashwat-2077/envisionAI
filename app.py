@@ -3,10 +3,10 @@ import pickle
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
-model = pickle.load(open(r'D:\Class\4 Fall Semester\Project\Code\model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 @app.route('/',methods=['GET'])
 def Home():
-    return render_template(r'index.html')
+    return render_template('index.html')
 
 
 standard_to = StandardScaler()
@@ -76,9 +76,9 @@ def predict():
         prediction=model.predict([[Area, Bed, Maintenance_staff, Gym, Swimming_Pool, Landscape, School, Parking, Hospital, gas_station, Lift]])
         output=round(prediction[0],2)
         if output<0:
-            return render_template(r'index.html',prediction_texts="Sorry, You might have entered some wrong values. Please enter the correct details again")
+            return render_template('index.html',prediction_texts="Sorry, You might have entered some wrong values. Please enter the correct details again")
         else:
-            return render_template(r'index.html',prediction_text="You Can Sell The Real Estate at {}".format(output))
+            return render_template('index.html',prediction_text="You Can Sell The Real Estate at {}".format(output))
     else:
         return render_template('index.html')
 
