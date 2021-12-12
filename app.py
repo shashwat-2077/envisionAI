@@ -78,7 +78,7 @@ def predict():
         if output<0:
             return render_template('index.html',Rs="Sorry, You might have entered some wrong values. Please enter the correct details again")
         else:
-            return render_template('index.html',Rs="You Can Sell The Real Estate at {}".format(output))
+            return render_template('index.html',Rs="You Can Sell The Real Estate at Rs. {}".format(output))
     else:
         return render_template('index.html')
 
